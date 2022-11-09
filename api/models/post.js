@@ -1,4 +1,4 @@
-const db = require('db_config')
+const db = require('../db_config')
 
 class Post {
 
@@ -10,16 +10,41 @@ class Post {
     }
 
     static get all () {
-        query = 'SELECT * FROM posts;'
+        return new Promise (async (resolve, reject) => {
+            try{
+                let getPosts = await db.query ('SELECT * FROM posts;')
+                let posts = getPosts.rows.map(post => new Post(post))
+                resolve(posts)
+            }
+            catch(err){
+                reject('No posts found')
+            }
+        })
+        
     }
 
     static findById (id) {
-        query = `SELECT * FROM posts WHERE id = ${id};`
+        return new Promise (async (resolve, reject) => {
+            try {
+                let getPost = await db.query (`SELECT * FROM posts WHERE id = ${id};`)
+                let post = new Post(getPost.rows[0])
+                resolve (post);
+            } catch (err) {
+                reject('Post not found');
+            }
+        });
     }
 
     static create (data) {
-        const { title, name, body} = data;
-        query = `INSERT INTO posts (title, name, body) VALUES (${title}, ${name}, ${body}) ;`
+        return new Promise (async (resolve, reject) => {
+            try {
+                const { title, name, body} = data;
+                let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES (${title}, ${name}, ${body}) ;`)
+                resolve (createPost.rows[0]);
+            } catch (err) {
+                reject('Post was not created');
+            }
+        });
     }
 
 }
