@@ -14,18 +14,19 @@ async function display() {
         post_container.className = 'post'
         let post_title = document.createElement('p')
         post_title.className = 'post-title'
-        let post_name = document.createElement('p')
-        post_name.className = 'post-name'
         let post_body = document.createElement('p')
         post_body.className = 'post-body'
+        let post_name = document.createElement('p')
+        post_name.className = 'post-name'
 
         post_title.textContent = posts[i].title
-        post_name.textContent = posts[i].name
         post_body.textContent = posts[i].body
+        post_name.textContent = posts[i].name
+
 
         post_container.append(post_title)
-        post_container.append(post_name)
         post_container.append(post_body)
+        post_container.append(`- ${post_name.textContent}`)
         main.append(post_container)
     }
 }
