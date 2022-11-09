@@ -12,8 +12,8 @@ async function getAll(){
     // e.preventDefault()
     try {
         let ret;
-        fetch(`http://localhost:3000/posts`).then(data => {ret = data.json(); return ret}).then(data => console.log(data))
-        console.log(ret)
+        await fetch(`http://localhost:3000/posts`).then(data => {ret = data.json(); return ret})
+        // console.log(ret)
         // const response = fetch(`http://localhost:3000/posts`);
        
         // console.log(response)
@@ -40,10 +40,6 @@ async function post(data){
     // e.preventDefault();
     try {
         console.log(data)
-        // const formData = new FormData(e.target);
-        // const formProps = Object.fromEntries(formData);
-        // console.log(JSON.stringify(Object.fromEntries(new FormData(e.target))))
-        // console.log(formProps)
         const options = {
             method: 'POST',
             headers: { "Content-Type": "application/json" },

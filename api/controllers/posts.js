@@ -23,8 +23,9 @@ async function show (req, res){
 async function create (req, res){
     try{
         const post = await Post.create(req.body);
-        res.status(201).json(book)
+        res.status(201).json(post)
     } catch (err){
+        console.log(err)
         res.status(422).json({err})
     }
 }
