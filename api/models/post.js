@@ -38,8 +38,12 @@ class Post {
     static create (data) {
         return new Promise (async (resolve, reject) => {
             try {
+<<<<<<< HEAD
                 const { title, name, body} = data;
                 console.log(data, title, name, body);
+=======
+                const {title, name, body} = data;
+>>>>>>> 2f448754ad35d2c604c81282dc66ccb82c1b0276
                 let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES ($1, $2, $3) RETURNING *;`, [title, name, body])
                 resolve (createPost.rows[0]);
             } catch (err) {
