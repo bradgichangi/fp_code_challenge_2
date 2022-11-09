@@ -1,3 +1,4 @@
 Created basic express server
 Created new pool to connect postgres and express
 Created routes and controller
+database connected
