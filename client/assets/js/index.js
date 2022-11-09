@@ -33,7 +33,8 @@ async function post(e){
         if(err) { 
             throw Error(err) 
         } else {
-            window.location.hash = `#posts/${id}`
+            // window.location.hash = `#posts/${id}`
+            console.log("Post created")
         }
     } catch (err) {
         console.warn(err);
