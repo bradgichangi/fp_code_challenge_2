@@ -13,6 +13,7 @@ async function getAll(){
     try {
         let ret;
         fetch(`http://localhost:3000/posts`).then(data => {ret = data.json(); return ret}).then(data => console.log(data))
+        console.log(ret)
         // const response = fetch(`http://localhost:3000/posts`);
        
         // console.log(response)
