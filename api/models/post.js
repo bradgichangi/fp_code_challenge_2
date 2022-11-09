@@ -39,7 +39,8 @@ class Post {
         return new Promise (async (resolve, reject) => {
             try {
                 const { title, name, body} = data;
-                let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES (${title}, ${name}, ${body}) ;`)
+                console.log(data, title, name, body);
+                let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES ($1, $2, $3) RETURNING *;`, [title, name, body])
                 resolve (createPost.rows[0]);
             } catch (err) {
                 reject('Post was not created');
