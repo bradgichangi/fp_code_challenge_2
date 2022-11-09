@@ -43,6 +43,7 @@ class Post {
                 let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES ($1, $2, $3) RETURNING *;`, [title, name, body])
                 resolve (createPost.rows[0]);
             } catch (err) {
+                console.log(err)
                 reject('Post was not created');
             }
         });

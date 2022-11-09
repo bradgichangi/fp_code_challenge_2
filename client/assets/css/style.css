@@ -124,7 +124,7 @@ textarea:focus {
 }
 
 
-.post-example {
+.post {
     border: solid 1px black;
     width: 50vw;
     margin: auto;
@@ -135,7 +135,7 @@ textarea:focus {
 }
 
 
-h3 {
+.post-name {
     align-self: start;
     color: #939aae;
 
