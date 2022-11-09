@@ -13,7 +13,7 @@ async function getAll(){
     try {
         let ret;
         await fetch(`http://localhost:3000/posts`).then(data => {ret = data.json(); return ret})
-        // console.log(ret)
+        console.log(ret)
         // const response = fetch(`http://localhost:3000/posts`);
        
         // console.log(response)
@@ -37,7 +37,6 @@ async function getItem(id) {
 
 
 async function post(data){
-    // e.preventDefault();
     try {
         console.log(data)
         const options = {
@@ -48,12 +47,9 @@ async function post(data){
         
         const response = await fetch('http://localhost:3000/posts', options);
         const { id, err } = await response.json();
-        if(err) { 
-            throw Error(err) 
-        } else {
-            // window.location.hash = `#posts/${id}`
-            console.log("Post created")
-        }
+
+        console.log("Post created")
+
     } catch (err) {
         console.warn(err);
     }

@@ -7,6 +7,7 @@ class Post {
         this.title = data.title
         this.name = data.name
         this.body = data.body
+        this.date = data.date_time
     }
 
     static get all () {
@@ -40,7 +41,7 @@ class Post {
             try {
                 const { title, name, body} = data;
                 console.log(data, title, name, body);
-                let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES ($1, $2, $3) RETURNING *;`, [title, name, body])
+                let createPost = await db.query (`INSERT INTO posts (title, name, body, date_time) VALUES ($1, $2, $3) RETURNING *;`, [title, name, body, date])
                 resolve (createPost.rows[0]);
             } catch (err) {
                 console.log(err)
