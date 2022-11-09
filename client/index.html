@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src='assets/js/index.js' defer></script>
+    <script src='assets/js/listeners.js' defer></script>
 </head>
 <body>
     <nav>
@@ -15,9 +16,9 @@
     </nav>
     <main>
         <form id="post-form">
-            <input class="input-box" type="text">
-            <input class="input-box" type="text">
-            <textarea name="" id="body" cols="30" rows="10"></textarea>
+            <input class="input-box" id="title-input" type="text">
+            <input class="input-box" id="name-input" type="text">
+            <textarea name="" id="body-input" cols="30" rows="10"></textarea>
             <input type="submit" value="publish">
         </form>
     </main>
