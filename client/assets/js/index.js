@@ -1,9 +1,25 @@
+// const form = document.querySelector('#post-form')
+// const titleInput = document.querySelector('#title-input')
+// const nameInput = document.querySelector('#name-input')
+// const bodyInput = document.querySelector('#body-input')
+// const main = document.querySelector('main')
+
+// form.addEventListener('submit', getAll)
+
+// fetch(`http://localhost:3000/posts`).then(data => data.json()).then(data => console.log(data))
+
 async function getAll(){
+    // e.preventDefault()
     try {
-        const response = await fetch(`http://localhost:3000/posts`);
-        const data = await response.json()
-        return data;
+        let ret;
+        fetch(`http://localhost:3000/posts`).then(data => {ret = data.json(); return ret}).then(data => console.log(data))
+        // const response = fetch(`http://localhost:3000/posts`);
+       
+        // console.log(response)
+        //  const data = response.json()
+        return ret;
     } catch (err) {
+        console.log(err)
         console.warn(err);
     }
 }
@@ -19,13 +35,18 @@ async function getItem(id) {
 }
 
 
-async function post(e){
-    e.preventDefault();
+async function post(data){
+    // e.preventDefault();
     try {
+        console.log(data)
+        // const formData = new FormData(e.target);
+        // const formProps = Object.fromEntries(formData);
+        // console.log(JSON.stringify(Object.fromEntries(new FormData(e.target))))
+        // console.log(formProps)
         const options = {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+            body: JSON.stringify(data)
         }
         
         const response = await fetch('http://localhost:3000/posts', options);
@@ -40,3 +61,4 @@ async function post(e){
         console.warn(err);
     }
 }
+
