@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Post It</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src='assets/js/index.js' defer></script>
 </head>
+
 <body>
-    <nav>
-        <a href="">Posts</a>
-        <a href="">Create Post</a>
+    <nav style="width:20%">
+        <a href="" style="width:100%" id="post-btn">Posts</a>
+        <a href="" style="width:100%" id="create-btn">Create Post</a>
     </nav>
     <main>
         <form id="post-form">
-            <input class="input-box" type="text">
-            <input class="input-box" type="text">
-            <textarea name="" id="body" cols="30" rows="10"></textarea>
-            <input type="submit" value="publish">
+            <input class="input-box" id="title" type="text" placeholder="Title">
+            <input class="input-box" type="text" placeholder="Your name" id="name">
+            <textarea name="" id="body" cols="30" rows="10" placeholder="Your story . . ."></textarea>
+            <input type="submit" value="publish" id="submit-btn">
         </form>
     </main>
+
+    <div class="post-example">
+            <h1>Title</h1>
+        <p>Fusce at nisl non tellus malesuada tempor eget bibendum quam. Phasellus bibendum tempor mi, in feugiat massa.
+            Morbi et
+            vulputate elit. Morbi molestie lacus sed bibendum rutrum. Vivamus nec hendrerit est, eget sodales dolor.
+            Pellentesque in
+            felis et massa aliquet porta ac eu arcu. Aenean viverra tortor sapien, sed lobortis orci faucibus vehicula.
+            Pellentesque
+            nunc diam, pharetra non varius ut, consequat ac est. Mauris feugiat auctor tempus. Nulla eu nisl vehicula,
+            efficitur
+            justo ut, tempor ligula. Fusce at luctus lorem, vehicula mattis erat. Aliquam hendrerit quam varius
+            pellentesque rutrum.
+            Aliquam aliquet eleifend feugiat. Pellentesque sed blandit ligula. Phasellus nec gravida elit.</p>
+            <h3> - Your name</h3>
+    </div>
 </body>
+
 </html>
