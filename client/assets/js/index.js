@@ -24,6 +24,7 @@ async function getItem(id) {
 
 
 async function post(data){
+    // e.preventDefault();
     try {
         console.log(data)
         const options = {

@@ -13,36 +13,27 @@ const fields = [
 ]
 
 async function display() {
-    
     let posts = await getAll()
-    console.log(posts)
+
     for(let i = 0; i < posts.length; i++) {
         let post_container = document.createElement('div')
         post_container.className = 'post'
-        post_container.id = i+1;
         let post_title = document.createElement('p')
         post_title.className = 'post-title'
-        let post_name = document.createElement('p')
-        post_name.className = 'post-name'
         let post_body = document.createElement('p')
         post_body.className = 'post-body'
-        let post_date = document.createElement('p')
-        post_date.className = 'post-date'
+        let post_name = document.createElement('p')
+        post_name.className = 'post-name'
 
         post_title.textContent = posts[i].title
-        post_name.textContent = posts[i].name
         post_body.textContent = posts[i].body
-        post_date.textContent = posts[i].date
+        post_name.textContent = posts[i].name
+
 
         post_container.append(post_title)
-        post_container.append(post_name)
         post_container.append(post_body)
-        post_container.append(post_date)
+        post_container.append(`- ${post_name.textContent}`)
         main.append(post_container)
-
-        post_container.addEventListener('click', () => {console.log(post_container.id)
-        window.location.href = `#posts/${post_container.id}`
-        })
     }
 }
 

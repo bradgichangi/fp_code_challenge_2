@@ -7,7 +7,6 @@ class Post {
         this.title = data.title
         this.name = data.name
         this.body = data.body
-        this.date = data.date_time
     }
 
     static get all () {
