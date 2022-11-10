@@ -35,12 +35,12 @@ async function display() {
         main.append(post_container)
 
         post_container.addEventListener('click', () => {console.log(post_container.id)
-        window.location.href = `/post/${post_container.id}`
+        window.location.href = `#posts/${post_container.id}`
         })
     }
 }
 
-function createPost (e) {
+function createPost () {
     e.preventDefault()
     let data = {
         title: titleInput.value,
@@ -52,10 +52,9 @@ function createPost (e) {
     post(data)
 }
 
-function getPost (e) {
-    e.preventDefault()
-    console.log(e.target)
-    let this_post = getItem()
+async function getPost (id) {
+
+    let this_post = await getItem(id)
 
     let post_container = document.createElement('div')
     post_container.className = 'post'
