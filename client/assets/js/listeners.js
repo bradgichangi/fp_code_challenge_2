@@ -4,7 +4,13 @@ const nameInput = document.querySelector('#name')
 const bodyInput = document.querySelector('#body')
 const main = document.querySelector('main')
 
-form.addEventListener('submit',createPost)
+
+const fields = [
+    { tag: 'input', attributes: { type: 'text', class: 'input-box', name: 'title', id: 'title', placeholder: 'Title' } },
+    { tag: 'input', attributes: { type: 'text', class: 'input-box', name: 'name', id: 'name', placeholder: 'Your name' } },
+    { tag: 'textarea', attributes: { name: 'body', id: 'body', cols: '30', rows: '10', placeholder: 'Your story . . .' } },
+    { tag: 'input', attributes: { type: 'submit', value: 'Publish', id: 'submit-btn'} }
+]
 
 async function display() {
     
@@ -41,7 +47,7 @@ async function display() {
 }
 
 function getNow () {
-    let date = new Date().toString();
+    let date = new Date();
     let year = date.getFullYear().toString()
     let month = (date.getMonth() + 1).toString()
     let day = date.getDate().toString()
@@ -52,42 +58,50 @@ function getNow () {
 }
 
 
-function createPost () {
-    let data = {
-        title: titleInput.value,
-        name: nameInput.value,
-        body: bodyInput.value,
-        date: getNow()
-    }
+async function createPost (e) {
+    e.preventDefault()
+    let data = Object.fromEntries(new FormData(e.target))
+    data['date_time'] = await getNow()
     console.log(data)
+    // console.log()
+    // console.log(JSON.stringify(Object.fromEntries(new FormData(e.target))))
     post(data)
 }
 
 async function createPostScreen() {
     let form = document.createElement('form')
-    let title = document.createElement('input')
-    title.id = 'title'
-    title.className = 'input-box'
-    title.placeholder = 'Title'
-    let name = document.createElement('input')
-    name.id = 'name'
-    name.className = 'input-box'
-    name.placeholder = 'Your name'
-    let body = document.createElement('textarea')
-    body.id = 'body'
-    body.placeholder = 'Your story . . .'
-    body.cols = '30'
-    body.rows = '10'
-    let publish = document.createElement('input')
-    publish.id = 'submit-btn'
-    publish.value = 'Publish'
-    publish.type = 'submit'
+    // let title = document.createElement('input')
+    // title.id = 'title'
+    // title.className = 'input-box'
+    // title.placeholder = 'Title'
+    // let name = document.createElement('input')
+    // name.id = 'name'
+    // name.className = 'input-box'
+    // name.placeholder = 'Your name'
+    // let body = document.createElement('textarea')
+    // body.id = 'body'
+    // body.placeholder = 'Your story . . .'
+    // body.cols = '30'
+    // body.rows = '10'
+    // let publish = document.createElement('input')
+    // publish.id = 'submit-btn'
+    // publish.value = 'Publish'
+    // publish.type = 'submit'
 
-    form.append(title)
-    form.append(name)
-    form.append(body)
-    form.append(publish)
+    // form.append(title)
+    // form.append(name)
+    // form.append(body)
+    // form.append(publish)
+
+    fields.forEach(f => {
+        const field = document.createElement(f.tag);
+        Object.entries(f.attributes).forEach(([a, v]) => field.setAttribute(a, v))
+        form.appendChild(field);
+    })
+
     main.append(form)
+
+    form.onsubmit = createPost
 }
 
 async function getPost (id) {
@@ -116,5 +130,3 @@ async function getPost (id) {
     post_container.append(post_date)
     main.append(post_container)
 }
-
-display()
