@@ -16,6 +16,8 @@ async function display() {
     let posts = await getAll()
 
     for(let i = 0; i < posts.length; i++) {
+
+        console.log(posts[i])
         let post_container = document.createElement('div')
         post_container.className = 'post'
         let post_title = document.createElement('p')
@@ -24,15 +26,19 @@ async function display() {
         post_body.className = 'post-body'
         let post_name = document.createElement('p')
         post_name.className = 'post-name'
+        let post_date = document.createElement('p')
+        post_date.className = 'post-date'
 
         post_title.textContent = posts[i].title
         post_body.textContent = posts[i].body
         post_name.textContent = posts[i].name
+        post_date.textContent = posts[i].date
 
 
         post_container.append(post_title)
         post_container.append(post_body)
         post_container.append(`- ${post_name.textContent}`)
+        post_container.append(post_date)
         main.append(post_container)
     }
 }
@@ -61,28 +67,6 @@ async function createPost (e) {
 
 async function createPostScreen() {
     let form = document.createElement('form')
-    // let title = document.createElement('input')
-    // title.id = 'title'
-    // title.className = 'input-box'
-    // title.placeholder = 'Title'
-    // let name = document.createElement('input')
-    // name.id = 'name'
-    // name.className = 'input-box'
-    // name.placeholder = 'Your name'
-    // let body = document.createElement('textarea')
-    // body.id = 'body'
-    // body.placeholder = 'Your story . . .'
-    // body.cols = '30'
-    // body.rows = '10'
-    // let publish = document.createElement('input')
-    // publish.id = 'submit-btn'
-    // publish.value = 'Publish'
-    // publish.type = 'submit'
-
-    // form.append(title)
-    // form.append(name)
-    // form.append(body)
-    // form.append(publish)
 
     fields.forEach(f => {
         const field = document.createElement(f.tag);
@@ -113,7 +97,7 @@ async function getPost (id) {
     post_title.textContent = this_post.title
     post_name.textContent = this_post.name
     post_body.textContent = this_post.body
-    post_date.textContent = this_post.date
+    post_date.textContent = this_post.date_time
 
     post_container.append(post_title)
     post_container.append(post_name)
