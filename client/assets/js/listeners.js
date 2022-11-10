@@ -40,16 +40,54 @@ async function display() {
     }
 }
 
+function getNow () {
+    let date = new Date().toString();
+    let year = date.getFullYear().toString()
+    let month = (date.getMonth() + 1).toString()
+    let day = date.getDate().toString()
+    let hour = date.getHours().toString()
+    let minute = date.getMinutes().toString()
+ 
+    return `${hour}:${minute} ${day}/${month}/${year}`
+}
+
+
 function createPost () {
-    e.preventDefault()
     let data = {
         title: titleInput.value,
         name: nameInput.value,
         body: bodyInput.value,
-        date: new Date().toISOString().slice(0, 19).replace('T', ' ')
+        date: getNow()
     }
     console.log(data)
     post(data)
+}
+
+async function createPostScreen() {
+    let form = document.createElement('form')
+    let title = document.createElement('input')
+    title.id = 'title'
+    title.className = 'input-box'
+    title.placeholder = 'Title'
+    let name = document.createElement('input')
+    name.id = 'name'
+    name.className = 'input-box'
+    name.placeholder = 'Your name'
+    let body = document.createElement('textarea')
+    body.id = 'body'
+    body.placeholder = 'Your story . . .'
+    body.cols = '30'
+    body.rows = '10'
+    let publish = document.createElement('input')
+    publish.id = 'submit-btn'
+    publish.value = 'Publish'
+    publish.type = 'submit'
+
+    form.append(title)
+    form.append(name)
+    form.append(body)
+    form.append(publish)
+    main.append(form)
 }
 
 async function getPost (id) {
