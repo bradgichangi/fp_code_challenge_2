@@ -38,9 +38,10 @@ class Post {
     static create (data) {
         return new Promise (async (resolve, reject) => {
             try {
-                const { title, name, body} = data;
-                console.log(data, title, name, body);
-                let createPost = await db.query (`INSERT INTO posts (title, name, body) VALUES ($1, $2, $3) RETURNING *;`, [title, name, body])
+                const { title, name, body, date_time} = data;
+                console.log("-- server --")
+                console.log(data);
+                let createPost = await db.query (`INSERT INTO posts (title, name, body, date_time) VALUES ($1, $2, $3, $4) RETURNING *;`, [title, name, body, date_time])
                 resolve (createPost.rows[0]);
             } catch (err) {
                 console.log(err)

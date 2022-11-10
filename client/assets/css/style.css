@@ -17,18 +17,30 @@ nav {
     margin-bottom: 10px;
 }
 
-a {
+nav :first-child {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-right: 1px solid white;
+}
+
+nav :last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left: 1px solid white;
+}
+
+nav a {
     text-decoration: none;
     color: white;
     background-color: #606470;
     /* margin-right: 10px; */
     /* margin-left: 10px; */
     border: solid 0px black;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
 }
 
-#create-btn {
+/* #create-btn {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -36,7 +48,7 @@ a {
 #post-btn {
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-}
+} */
 
 a:hover {
     background-color: #93deff;
