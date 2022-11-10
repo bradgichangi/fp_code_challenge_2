@@ -20,6 +20,7 @@ async function display() {
         console.log(posts[i])
         let post_container = document.createElement('div')
         post_container.className = 'post'
+        post_container.id = i+1
         let post_title = document.createElement('p')
         post_title.className = 'post-title'
         let post_body = document.createElement('p')
@@ -40,6 +41,8 @@ async function display() {
         post_container.append(`- ${post_name.textContent}`)
         post_container.append(post_date)
         main.append(post_container)
+
+        post_container.addEventListener('click', () => window.location.hash = `#posts/${post_container.id}` )
     }
 }
 
@@ -59,10 +62,9 @@ async function createPost (e) {
     e.preventDefault()
     let data = Object.fromEntries(new FormData(e.target))
     data['date_time'] = await getNow()
-    console.log(data)
-    // console.log()
-    // console.log(JSON.stringify(Object.fromEntries(new FormData(e.target))))
     post(data)
+    let posts = await getAll()
+    window.location.hash = `#posts/${posts.length+1}`
 }
 
 async function createPostScreen() {
@@ -77,6 +79,7 @@ async function createPostScreen() {
     main.append(form)
 
     form.onsubmit = createPost
+    
 }
 
 async function getPost (id) {

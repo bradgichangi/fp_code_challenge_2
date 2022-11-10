@@ -1,7 +1,7 @@
 INSERT INTO posts (title, name, body)
 VALUES
-('Test Title 1', 'John Doe', 'Test Body'),
-('Test Title 2', 'John Doe', 'Test Body'),
-('Test Title 3', 'John Doe', 'Test Body'),
-('Test Title 4', 'John Doe', 'Test Body'),
-('Test Title 5', 'John Doe', 'Test Body');
+('My Birthday', 'John Doe', 'Had an amazing birthday today!', '10
+:52 13/09/2022'),
+('10th Anniversary', 'Jane Doe', 'Binging game of thrones, how much better could it get?!', '10
+:52 13/09/2022');
+
