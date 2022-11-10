@@ -1,4 +1,4 @@
-INSERT INTO posts (title, name, body)
+INSERT INTO posts (title, name, body, date_time)
 VALUES
 ('My Birthday', 'John Doe', 'Had an amazing birthday today!', '10
 :52 13/09/2022'),
