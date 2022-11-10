@@ -5,5 +5,5 @@ CREATE TABLE posts (
     title VARCHAR (100),
     name VARCHAR(50),
     body VARCHAR(1000),
-    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    date_time VARCHAR(20)
 );
