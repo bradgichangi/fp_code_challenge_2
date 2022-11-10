@@ -2,56 +2,64 @@
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-color: #f7f7f7;
-    /* padding-top: 15px; */
+    background-color: #bbb8b8;
+    background-image: url('https://i.etsystatic.com/20645139/r/il/50de29/3401756267/il_fullxfull.3401756267_resz.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 nav {
     list-style-type: none;
-    /* padding: 0; */
     display: flex;
-    /* justify-content: space-around; */
-    /* border: solid 1px black; */
     padding: 10px;
-    /* border: solid 1px black; */
-    margin-bottom: 10px;
+    margin: 20px auto;
+    margin-top: 5px;
 }
 
 nav :first-child {
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-right: 1px solid white;
+    border-right: 1px solid #F2DF3A;
 }
 
 nav :last-child {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-left: 1px solid white;
+    border-left: 1px solid #F2DF3A;
+}
+
+#home-div {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    height: 300px;
+    background-color: #F2DF3A;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    width: 60%;
+    margin: 50px auto;
+}
+
+#home-btn {
+    text-decoration: none;
+    background-color: black;
+    padding: 20px;
+    color: white;
+    margin: 20px auto;
+    height: 20px;
+}
+
+
+h1 {
+    text-align: center;
 }
 
 nav a {
     text-decoration: none;
     color: white;
-    background-color: #606470;
-    /* margin-right: 10px; */
-    /* margin-left: 10px; */
+    background-color: black;
     border: solid 0px black;
     padding: 20px;
     text-align: center;
 }
 
-/* #create-btn {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-#post-btn {
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-} */
-
-a:hover {
-    background-color: #93deff;
+nav a:hover {
+    background-color: #F2DF3A;
     transition: 0.5s;
     color: black;
 }
@@ -66,18 +74,17 @@ form {
     margin-bottom: 5px;
     border: none;
     padding: 30px 50px 20px 50px;
-    border-radius: 50px;
-    background-color: #323643;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    background-color: #F2DF3A;
 }
 
 .input-box {
     margin-bottom: 15px;
-    border-radius: 20px;
     padding: 15px 15px;
     border: none;
     font-family: 'Ubuntu', sans-serif;
-    background-color: #606470;
-    color: white;
+    background-color: #ada441;
+    color: black;
     font-size: 15px;
 }
 
@@ -86,7 +93,7 @@ form {
 }
 
 .input-box::placeholder {
-    color: white;
+    color: black;
 }
 
 .input-box:focus {
@@ -95,18 +102,17 @@ form {
 
 textarea {
     resize: none;
-    border-radius: 20px;
     padding: 6px 12px;
     border: none;
     margin-bottom: 10px;
     font-family: 'Ubuntu', sans-serif;
-    background-color: #606470;
-    color: white;
+    background-color: #ada441;
+    color: black;
     font-size: 15px;
 }
 
 textarea::placeholder {
-    color: white;
+    color: black;
 }
 
 textarea:focus {
@@ -115,34 +121,32 @@ textarea:focus {
 
 #submit-btn {
     width: 100px;
-    border-radius: 15px;
     border: none;
     padding: 10px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #606470;
     font-family: 'Ubuntu', sans-serif;
     border: none;
     font-size: 15px;
-    color: white;
+    background-color: #ada441;
+    color: black;
 }
 
 #submit-btn:hover {
-    background-color: #93deff;
+    background-color: black;
+    color: white;
     transition: 0.5s;
-    color: #323643;
 }
 
 
 .post {
-    border: solid 1px black;
     width: 50vw;
-    margin: 10px auto;
+    margin: 40px auto;
     padding: 30px 50px 30px 50px;
-    border-radius: 35px;
-    background-color: #323643;
-    color: white;
+    background-color: #F2DF3A;
+    color: black;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
 .post-title{
